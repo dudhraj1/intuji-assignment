@@ -63,3 +63,22 @@ textarea {
 .button:hover {
     background-color: #0056b3;
 }
+
+.events-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.event-item {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.remove-button{
+    background-color: #bb3434;
+    color: #fff;
+    width: 25%;
+}
