@@ -14,7 +14,7 @@ require_once 'config.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Calendar Integration</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <div class="container">
@@ -22,7 +22,6 @@ require_once 'config.php';
     <div class="menu">
         <a href="events.php" class="button">List Events</a>
         <a href="create_event.php" class="button">Create Event</a>
-        <a href="delete_event.php" class="button">Delete Event</a>
         <a href="disconnect.php" class="button">Disconnect</a>
     </div>
 </div>

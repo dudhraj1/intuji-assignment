@@ -85,6 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
         <button type="submit" class="button">Create Event</button>
     </form>
+    <a href="index.php" class="button">Back to Main Page</a>
 </div>
 </body>
 </html>
