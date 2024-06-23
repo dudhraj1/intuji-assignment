@@ -20,9 +20,13 @@ require_once 'config.php';
 <div class="container">
     <h1>Google Calendar Integration</h1>
     <div class="menu">
-        <a href="events.php" class="button">List Events</a>
-        <a href="create_event.php" class="button">Create Event</a>
-        <a href="disconnect.php" class="button">Disconnect</a>
+        <?php if (isset($_SESSION['access_token']) && $_SESSION['access_token']) : ?>
+            <a href="events.php" class="button">List Events</a>
+            <a href="create_event.php" class="button">Create Event</a>
+            <a href="disconnect.php" class="button">Disconnect</a>
+        <?php else: ?>
+            <a href="oauth2callback.php" class="button">Connect</a>
+        <?php endif; ?>
     </div>
 </div>
 </body>

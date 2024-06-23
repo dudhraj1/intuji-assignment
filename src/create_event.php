@@ -35,7 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ),
         ));
 
-
         try {
             // Insert the event into the calendar
             $calendarId = 'primary';
@@ -44,8 +43,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } catch (Exception $e) {
             $message = 'Error: ' . $e->getMessage();
         }
+
     }else{
+
         $message = 'Error: End Time should not be less than start date ';
+
     }
 }
 ?>
