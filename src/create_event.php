@@ -18,25 +18,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $startDateTime = $_POST['start_date'] . 'T' . $_POST['start_time'] . ':00';
     $endDateTime = $_POST['end_date'] . 'T' . $_POST['end_time'] . ':00';
 
-    // Create a new event object
-    $event = new Google_Service_Calendar_Event(array(
-        'summary' => $summary,
-        'location' => $location,
-        'description' => $description,
-        'start' => array(
-            'dateTime' => $startDateTime,
-            'timeZone' => 'Asia/Kathmandu',
-        ),
-        'end' => array(
-            'dateTime' => $endDateTime,
-            'timeZone' => 'Asia/Kathmandu',
-        ),
-    ));
+    if($endDateTime > $startDateTime) {
 
-    // Insert the event into the calendar
-    $calendarId = 'primary';
-    $event = $service->events->insert($calendarId, $event);
-    $message = 'Event created: ' . $event->htmlLink;
+        // Create a new event object
+        $event = new Google_Service_Calendar_Event(array(
+            'summary' => $summary,
+            'location' => $location,
+            'description' => $description,
+            'start' => array(
+                'dateTime' => $startDateTime,
+                'timeZone' => 'Asia/Kathmandu',
+            ),
+            'end' => array(
+                'dateTime' => $endDateTime,
+                'timeZone' => 'Asia/Kathmandu',
+            ),
+        ));
+
+
+        try {
+            // Insert the event into the calendar
+            $calendarId = 'primary';
+            $event = $service->events->insert($calendarId, $event);
+            $message = 'Event created: <a href="' . $event->htmlLink . '" target="_blank">Open event in calender</a>';
+        } catch (Exception $e) {
+            $message = 'Error: ' . $e->getMessage();
+        }
+    }else{
+        $message = 'Error: End Time should not be less than start date ';
+    }
 }
 ?>
 
