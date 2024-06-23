@@ -10,9 +10,9 @@ require_once __DIR__ . '/../vendor/autoload.php';
 session_start();
 
 $client = new Google_Client();
-$client->setClientId('446170590311-lkp9vq4s6bumr65m4ah26ivhhbl5bd0v.apps.googleusercontent.com');
-$client->setClientSecret('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');
-$client->setRedirectUri('http://localhost/intuji-assignment/src/oauth2callback.php');
+$client->setClientId('YOUR_CLIENT_ID');
+$client->setClientSecret('YOUR_CLIENT_SECRET');
+$client->setRedirectUri('http://your-domain.com/src/oauth2callback.php');
 $client->addScope(Google_Service_Calendar::CALENDAR);
 $client->setAccessType('offline');
 $client->setPrompt('consent');
